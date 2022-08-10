@@ -1,0 +1,28 @@
+<p>product-list works!</p>
+<!--
+<div *ngIf="error"><h2>{{error}}</h2></div>
+<div *ngIf="!error">
+</div>
+-->
+<div>
+    <table>
+        <thead>
+            <td>Product Id</td>
+            <td>Name</td>
+            <td>Brand</td>
+            <td>Price</td>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of products" (click)="selectProduct(p)">
+                <td>{{p.id}}</td>
+                <td>{{p.name}}</td>
+                <td>{{p.brand}}</td>
+                <td>{{p.price}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div *ngIf="selectedProduct">
+    <app-product-detail [product]="selectedProduct" (addToCart)="showCartMessage($event)"></app-product-detail>
+</div>

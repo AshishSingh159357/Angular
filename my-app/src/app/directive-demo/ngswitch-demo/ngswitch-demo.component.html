@@ -1,0 +1,29 @@
+<p>ngswitch-demo works!</p>
+<div>
+    <h2>
+        Phoenix Pre-Primary School Admission Form
+    </h2>
+<div>
+    <form #admissionForm (ngSubmit)="save(admissionForm)">
+        <div>
+            <label for="nm">Candidate Name:</label>
+            <input name="nm"  required>
+        </div>
+        <div>
+            <label for="age">Candidate Age:</label>
+            <input type="number" name="age" required>
+        </div>
+        
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<div [hidden]="!candidate.name" [ngSwitch]="candidate.age">
+    <h2 *ngSwitchCase="3">Congrats {{candidate.name}} you are eligible for nursery Admission</h2>
+    <h2 *ngSwitchCase="4">Congrats {{candidate.name}} you are eligible for Jr .nursery Admission</h2>
+    <h2 *ngSwitchCase="5">Congrats {{candidate.name}} you are eligible for Sr .nursery Admission</h2>
+    <h2 *ngSwitchDefault>Sorry</h2>
+    
+</div>
+
+</div>

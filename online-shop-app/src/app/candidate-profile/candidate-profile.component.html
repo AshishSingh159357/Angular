@@ -1,0 +1,29 @@
+<p>candidate-profile works!</p>
+
+<div class="container">
+    <form #candidateForm (ngSubmit)="save()">
+        <div class="form-group">
+            <input id="cnm" class="form-control" name="candidate_name" [(ngModel)]="candidateName" #c_name="ngModel"
+                required minlength="3" maxlength="10">
+            <div class="alert alert-danger" *ngIf="c_name.invalid && (c_name.touched || c_name.dirty)">
+                <div *ngIf="c_name.errors">
+                    <div *ngIf="c_name.errors['required']">
+                        Your Name is required to be entered
+                    </div>
+                    <div *ngIf="c_name.errors['minlength']">
+                        Minimum no of character should be 3
+                    </div>
+                    <div *ngIf="c_name.errors['maxlength']">
+                        max shoul be 10
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-success mt-3" type="submit">submit</button>
+    </form>
+
+</div>
+<div *ngIf="candidateName">
+    <h2>Your name is {{candidateName}}</h2>
+
+</div>

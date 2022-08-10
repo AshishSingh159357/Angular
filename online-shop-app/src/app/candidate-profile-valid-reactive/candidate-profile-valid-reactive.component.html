@@ -1,0 +1,25 @@
+<p>candidate-profile-valid-reactive works!</p>
+<div class="container">
+    <h2>Candidate Form</h2>
+    <form [formGroup]="candidateForm" (ngSubmit)="save()">
+        <div class="form-group">
+            <input id="cad_nm" formControlName="candidate['name']" >
+            <div class="alert alert-danger" *ngIf="candidate['name'].invalid && (candidate['name'].touched || candidate['name'].dirty)">
+                <div *ngIf="candidate['name'].errors">
+
+                    <div *ngIf="candidate['name'].errors['required']">
+                        Name is mandatory
+                    </div>
+                    <div *ngIf="candidate['name'].errors['minlength']">
+                        Min must be 3
+                    </div>
+                    <div *ngIf="candidate['name'].errors['maxlength']">
+                        Max must be 10
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button [disabled]="candidateForm.invalid" type="submit" class="btn btn-primary">Save</button>
+    </form>
+
+</div>

@@ -1,0 +1,8 @@
+<p>ngif-demo works!</p>
+
+<div *ngIf="names" >
+    <input [(ngModel)]="names">
+</div>
+<div *ngIf="!names" >
+    <button (click)="save()">Save</button>
+</div>

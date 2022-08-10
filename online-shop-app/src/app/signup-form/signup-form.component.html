@@ -1,0 +1,55 @@
+<p>sign-up-form works!</p>
+<div class="container">
+    <h2>Sign Up Form</h2>
+    <form [formGroup]="signupForm" (ngSubmit)="validate()">
+
+        <div class="form-group">
+            <label for="name">
+                <input class="form-control" id="name" formControlName="name" placeholder="Name" name="nn">
+            </label>
+            <div class="alert alert-danger" *ngIf="signup['name'].invalid && (signup['name'].touched||signup['name'].dirty)">
+                <div *ngIf="signup['name'].errors">
+                    <div *ngIf="signup['name'].errors['required']">
+                        Name is required.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">
+                <input class="form-control" id="password" formControlName="password" placeholder="Password" type="password">
+            </label>
+            <div class="alert alert-danger" *ngIf="signup['password'].invalid && (signup['password'].touched||signup['password'].dirty)">
+                <div *ngIf="signup['password'].errors">
+                    <div *ngIf="signup['password'].errors['required']">
+                        Password is required.
+                    </div>
+                    <div *ngIf="signup['password'].errors['minlength']">
+                        Minimum length should be more than 6
+                    </div>
+                    <div *ngIf="signup['password'].errors['maxlength']">
+                        Maximum length should be less than 18
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="repwd">
+                <input class="form-control" id="repwd" formControlName="rePassword" placeholder="Re-Password" type="password">
+            </label>
+            <div class="alert alert-danger" *ngIf="signup['rePassword'].invalid && (signup['rePassword'].touched||signup['rePassword'].dirty)">
+                <div *ngIf="signup['rePassword'].errors">
+                    <div *ngIf="signup['rePassword'].errors['required']">
+                        Password is required.
+                    </div>
+                </div>
+            </div>
+            <div class="alert alert-danger" *ngIf="signupForm.errors">
+                <div class="alert alert-danger" *ngIf="signupForm.errors?.['passwordMismatch'] && (signupForm.touched||signupForm.dirty)">
+                    Passwords do not match.
+                </div>
+            </div>
+        </div>
+        <button [disabled]="signupForm.invalid" class="btn btn-primary mt-2" type="submit">Submit</button>
+    </form>
+</div>

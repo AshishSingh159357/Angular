@@ -1,0 +1,63 @@
+<p>customer-reactive-form works!</p>
+
+<div class="container">
+    <form [formGroup]="customerProfile" (ngSubmit)="save()">
+        <div class="form-group">
+        <label for="c_nm">
+            <input class ="form-control" id="c_nm" formcontrolName="fullname" placeholder="Full name">
+
+        </label>
+        </div>
+        <div class="form-group">
+            <label for="c_age">
+                <input class ="form-control" id="c_age" formcontrolName="age" placeholder="age">
+    
+            </label>
+            </div>
+            <div class="form-group">
+                <label for="c_gender">
+                    <input class ="form-control" id="c_gender" formcontrolName="gender" placeholder="gender">
+        
+                </label>
+                </div>
+                <div formGroupName ="address">
+                    <div class="form-group">
+                        <label for="c_fno">
+                            <input class ="form-control" id="c_fno" formcontrolName="flatNo" placeholder="flatNo">
+                
+                        </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="c_st">
+                                <input class ="form-control" id="c_st" formcontrolName="streetName" placeholder="streetname">
+                    
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="c_loc">
+                                <input class ="form-control" id="c_loc" formcontrolName="locality" placeholder="locality">
+                    
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="c_city">
+                                <input class ="form-control" id="c_city" formcontrolName="city" placeholder="city">
+                    
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="c_p">
+                                <input class ="form-control" id="c_p" formcontrolName="pinCode" placeholder="pinCode">
+                    
+                            </label>
+                        </div>
+    
+
+    
+
+                </div>
+
+            <button class="btn btn-success" type="submit">save</button>
+            <button class="btn btn-primary" type="reset">reset</button>
+    </form>
+</div>

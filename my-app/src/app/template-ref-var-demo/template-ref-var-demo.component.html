@@ -1,0 +1,10 @@
+<p>template-ref-var-demo works!</p>
+<div>
+    <input #nm placeholder="Enter Your Name">
+</div>
+<div>
+    <button (click)="save(nm.value)">Save</button>
+</div>
+<div [hidden]="!name">
+    <h2>Enter Name is {{name}}</h2>
+</div>

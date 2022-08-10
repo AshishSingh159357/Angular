@@ -1,0 +1,20 @@
+<p>electronic works!</p>
+
+<div class="container">
+    <form [formGroup]="personFormGroup" (ngSubmit)="save()">
+        <div>
+            <label for="pnm">
+                <input id="pnm" formControlName="name">
+            </label>
+            <div>
+                <label for=""p_age>
+                    <input id="p_age" formControlName="age">
+                </label>
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+<div>
+    <p>{{personFormGroup.controls['name'].value }}</p>
+</div>
+</div>
